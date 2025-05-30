@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupSetting = new System.Windows.Forms.GroupBox();
             this.radioCharge = new System.Windows.Forms.RadioButton();
             this.radioPay = new System.Windows.Forms.RadioButton();
@@ -44,15 +45,20 @@
             this.radio08 = new System.Windows.Forms.RadioButton();
             this.labelPay = new System.Windows.Forms.Label();
             this.groupCharge = new System.Windows.Forms.GroupBox();
+            this.btnChargeSubmit = new System.Windows.Forms.Button();
+            this.btnChargeQuery = new System.Windows.Forms.Button();
             this.radio100 = new System.Windows.Forms.RadioButton();
             this.radio50 = new System.Windows.Forms.RadioButton();
             this.radio20 = new System.Windows.Forms.RadioButton();
             this.labelCharge = new System.Windows.Forms.Label();
-            this.btnChargeQuery = new System.Windows.Forms.Button();
-            this.btnChargeSubmit = new System.Windows.Forms.Button();
+            this.mStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.mInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.mSerialPort = new System.IO.Ports.SerialPort(this.components);
+            this.mTimer = new System.Windows.Forms.Timer(this.components);
             this.groupSetting.SuspendLayout();
             this.groupPay.SuspendLayout();
             this.groupCharge.SuspendLayout();
+            this.mStatusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupSetting
@@ -240,6 +246,26 @@
             this.groupCharge.TabStop = false;
             this.groupCharge.Text = "充值系统 ";
             // 
+            // btnChargeSubmit
+            // 
+            this.btnChargeSubmit.Location = new System.Drawing.Point(174, 259);
+            this.btnChargeSubmit.Name = "btnChargeSubmit";
+            this.btnChargeSubmit.Size = new System.Drawing.Size(100, 49);
+            this.btnChargeSubmit.TabIndex = 5;
+            this.btnChargeSubmit.Text = "确认充值";
+            this.btnChargeSubmit.UseVisualStyleBackColor = true;
+            this.btnChargeSubmit.Click += new System.EventHandler(this.btnChargeSubmit_Click);
+            // 
+            // btnChargeQuery
+            // 
+            this.btnChargeQuery.Location = new System.Drawing.Point(49, 259);
+            this.btnChargeQuery.Name = "btnChargeQuery";
+            this.btnChargeQuery.Size = new System.Drawing.Size(100, 49);
+            this.btnChargeQuery.TabIndex = 4;
+            this.btnChargeQuery.Text = "余额查询";
+            this.btnChargeQuery.UseVisualStyleBackColor = true;
+            this.btnChargeQuery.Click += new System.EventHandler(this.btnChargeQuery_Click);
+            // 
             // radio100
             // 
             this.radio100.AutoSize = true;
@@ -283,31 +309,29 @@
             this.labelCharge.TabIndex = 0;
             this.labelCharge.Text = "信息提示 ";
             // 
-            // btnChargeQuery
+            // mStatusStrip
             // 
-            this.btnChargeQuery.Location = new System.Drawing.Point(49, 259);
-            this.btnChargeQuery.Name = "btnChargeQuery";
-            this.btnChargeQuery.Size = new System.Drawing.Size(100, 49);
-            this.btnChargeQuery.TabIndex = 4;
-            this.btnChargeQuery.Text = "余额查询";
-            this.btnChargeQuery.UseVisualStyleBackColor = true;
-            this.btnChargeQuery.Click += new System.EventHandler(this.btnChargeQuery_Click);
+            this.mStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mInfo});
+            this.mStatusStrip.Location = new System.Drawing.Point(0, 572);
+            this.mStatusStrip.Name = "mStatusStrip";
+            this.mStatusStrip.Size = new System.Drawing.Size(740, 26);
+            this.mStatusStrip.TabIndex = 8;
+            this.mStatusStrip.Text = "statusStrip1";
             // 
-            // btnChargeSubmit
+            // mInfo
             // 
-            this.btnChargeSubmit.Location = new System.Drawing.Point(174, 259);
-            this.btnChargeSubmit.Name = "btnChargeSubmit";
-            this.btnChargeSubmit.Size = new System.Drawing.Size(100, 49);
-            this.btnChargeSubmit.TabIndex = 5;
-            this.btnChargeSubmit.Text = "确认充值";
-            this.btnChargeSubmit.UseVisualStyleBackColor = true;
-            this.btnChargeSubmit.Click += new System.EventHandler(this.btnChargeSubmit_Click);
+            this.mInfo.Name = "mInfo";
+            this.mInfo.Size = new System.Drawing.Size(174, 20);
+            this.mInfo.Text = "提示：请先建立串口连接";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 598);
+            this.Controls.Add(this.mStatusStrip);
             this.Controls.Add(this.groupCharge);
             this.Controls.Add(this.groupPay);
             this.Controls.Add(this.groupSetting);
@@ -321,7 +345,10 @@
             this.groupPay.PerformLayout();
             this.groupCharge.ResumeLayout(false);
             this.groupCharge.PerformLayout();
+            this.mStatusStrip.ResumeLayout(false);
+            this.mStatusStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -349,6 +376,10 @@
         private System.Windows.Forms.RadioButton radio20;
         private System.Windows.Forms.Label labelCharge;
         private System.Windows.Forms.Button btnChargeSubmit;
+        private System.Windows.Forms.StatusStrip mStatusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel mInfo;
+        private System.IO.Ports.SerialPort mSerialPort;
+        private System.Windows.Forms.Timer mTimer;
     }
 }
 
