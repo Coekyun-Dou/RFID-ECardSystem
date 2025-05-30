@@ -52,5 +52,29 @@ namespace ECardSystem
 
         }
 
+        private void radio08_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radio16_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radio24_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioOther_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPaySubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
