@@ -326,6 +326,10 @@
             this.mInfo.Size = new System.Drawing.Size(174, 20);
             this.mInfo.Text = "提示：请先建立串口连接";
             // 
+            // mTimer
+            // 
+            this.mTimer.Tick += new System.EventHandler(this.mTimer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
