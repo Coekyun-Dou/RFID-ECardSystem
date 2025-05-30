@@ -1,4 +1,4 @@
-## RFID综合实训项目 | 基于C#的一卡通管理系统
+## RFID综合实训项目 | 基于 13.56M TypeA 标签卡的一卡通管理系统
 
 > *`From Felix Du`*
 
@@ -24,9 +24,11 @@
 
 1. 硬件：13.56M 高频 RFID 模块、ISO14443 TypeA 标签卡，miniUSB 线，PC 电脑；
 
-![image-20250530020752569](C:\Users\Duuuzx\AppData\Roaming\Typora\typora-user-images\image-20250530020752569.png)
+![image-20250531010430921](E:/2023-code/ECardSystem/README.assets/image-20250531010430921.png)
 
-![image-20250530020800683](C:\Users\Duuuzx\AppData\Roaming\Typora\typora-user-images\image-20250530020800683.png)
+![image-20250531010523286](E:/2023-code/ECardSystem/README.assets/image-20250531010523286.png)
+
+
 
 2. 软件： PC 机操作系统 Windows（XP、7、10) ＋ Visual Studio 2017 开发环境
 
@@ -35,3 +37,5 @@
 在Visual Studio 平台上使用C#语言Winform 开发基于 13.56M TypeA 标签卡的一卡通管理系统。
 
 ### 【页面展示】
+
+![image-20250531010652126](E:\2023-code\ECardSystem\README.assets\image-20250531010652126.png)
