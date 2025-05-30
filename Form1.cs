@@ -76,5 +76,15 @@ namespace ECardSystem
         {
 
         }
+
+        private void btnChargeQuery_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnChargeSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

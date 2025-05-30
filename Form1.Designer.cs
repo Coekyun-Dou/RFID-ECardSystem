@@ -36,15 +36,23 @@
             this.comboSerial = new System.Windows.Forms.ComboBox();
             this.btnSerialRefresh = new System.Windows.Forms.Button();
             this.groupPay = new System.Windows.Forms.GroupBox();
-            this.labelPay = new System.Windows.Forms.Label();
-            this.radio08 = new System.Windows.Forms.RadioButton();
-            this.radio16 = new System.Windows.Forms.RadioButton();
-            this.radio24 = new System.Windows.Forms.RadioButton();
-            this.radioOther = new System.Windows.Forms.RadioButton();
-            this.textOther = new System.Windows.Forms.TextBox();
             this.btnPaySubmit = new System.Windows.Forms.Button();
+            this.textOther = new System.Windows.Forms.TextBox();
+            this.radioOther = new System.Windows.Forms.RadioButton();
+            this.radio24 = new System.Windows.Forms.RadioButton();
+            this.radio16 = new System.Windows.Forms.RadioButton();
+            this.radio08 = new System.Windows.Forms.RadioButton();
+            this.labelPay = new System.Windows.Forms.Label();
+            this.groupCharge = new System.Windows.Forms.GroupBox();
+            this.radio100 = new System.Windows.Forms.RadioButton();
+            this.radio50 = new System.Windows.Forms.RadioButton();
+            this.radio20 = new System.Windows.Forms.RadioButton();
+            this.labelCharge = new System.Windows.Forms.Label();
+            this.btnChargeQuery = new System.Windows.Forms.Button();
+            this.btnChargeSubmit = new System.Windows.Forms.Button();
             this.groupSetting.SuspendLayout();
             this.groupPay.SuspendLayout();
+            this.groupCharge.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupSetting
@@ -136,56 +144,27 @@
             this.groupPay.Enabled = false;
             this.groupPay.Location = new System.Drawing.Point(29, 146);
             this.groupPay.Name = "groupPay";
-            this.groupPay.Size = new System.Drawing.Size(328, 441);
+            this.groupPay.Size = new System.Drawing.Size(328, 425);
             this.groupPay.TabIndex = 1;
             this.groupPay.TabStop = false;
             this.groupPay.Text = "扣费系统 ";
             // 
-            // labelPay
+            // btnPaySubmit
             // 
-            this.labelPay.AutoSize = true;
-            this.labelPay.Font = new System.Drawing.Font("宋体", 13F);
-            this.labelPay.Location = new System.Drawing.Point(108, 58);
-            this.labelPay.Name = "labelPay";
-            this.labelPay.Size = new System.Drawing.Size(109, 22);
-            this.labelPay.TabIndex = 0;
-            this.labelPay.Text = "信息提示 ";
+            this.btnPaySubmit.Location = new System.Drawing.Point(112, 296);
+            this.btnPaySubmit.Name = "btnPaySubmit";
+            this.btnPaySubmit.Size = new System.Drawing.Size(84, 29);
+            this.btnPaySubmit.TabIndex = 6;
+            this.btnPaySubmit.Text = "确认扣费";
+            this.btnPaySubmit.UseVisualStyleBackColor = true;
+            this.btnPaySubmit.Click += new System.EventHandler(this.btnPaySubmit_Click);
             // 
-            // radio08
+            // textOther
             // 
-            this.radio08.AutoSize = true;
-            this.radio08.Location = new System.Drawing.Point(32, 175);
-            this.radio08.Name = "radio08";
-            this.radio08.Size = new System.Drawing.Size(67, 19);
-            this.radio08.TabIndex = 1;
-            this.radio08.TabStop = true;
-            this.radio08.Text = "0.8元";
-            this.radio08.UseVisualStyleBackColor = true;
-            this.radio08.CheckedChanged += new System.EventHandler(this.radio08_CheckedChanged);
-            // 
-            // radio16
-            // 
-            this.radio16.AutoSize = true;
-            this.radio16.Location = new System.Drawing.Point(129, 175);
-            this.radio16.Name = "radio16";
-            this.radio16.Size = new System.Drawing.Size(67, 19);
-            this.radio16.TabIndex = 2;
-            this.radio16.TabStop = true;
-            this.radio16.Text = "1.6元";
-            this.radio16.UseVisualStyleBackColor = true;
-            this.radio16.CheckedChanged += new System.EventHandler(this.radio16_CheckedChanged);
-            // 
-            // radio24
-            // 
-            this.radio24.AutoSize = true;
-            this.radio24.Location = new System.Drawing.Point(222, 175);
-            this.radio24.Name = "radio24";
-            this.radio24.Size = new System.Drawing.Size(67, 19);
-            this.radio24.TabIndex = 3;
-            this.radio24.TabStop = true;
-            this.radio24.Text = "2.4元";
-            this.radio24.UseVisualStyleBackColor = true;
-            this.radio24.CheckedChanged += new System.EventHandler(this.radio24_CheckedChanged);
+            this.textOther.Location = new System.Drawing.Point(144, 237);
+            this.textOther.Name = "textOther";
+            this.textOther.Size = new System.Drawing.Size(111, 25);
+            this.textOther.TabIndex = 5;
             // 
             // radioOther
             // 
@@ -199,28 +178,137 @@
             this.radioOther.UseVisualStyleBackColor = true;
             this.radioOther.CheckedChanged += new System.EventHandler(this.radioOther_CheckedChanged);
             // 
-            // textOther
+            // radio24
             // 
-            this.textOther.Location = new System.Drawing.Point(144, 237);
-            this.textOther.Name = "textOther";
-            this.textOther.Size = new System.Drawing.Size(111, 25);
-            this.textOther.TabIndex = 5;
+            this.radio24.AutoSize = true;
+            this.radio24.Location = new System.Drawing.Point(222, 175);
+            this.radio24.Name = "radio24";
+            this.radio24.Size = new System.Drawing.Size(67, 19);
+            this.radio24.TabIndex = 3;
+            this.radio24.TabStop = true;
+            this.radio24.Text = "2.4元";
+            this.radio24.UseVisualStyleBackColor = true;
+            this.radio24.CheckedChanged += new System.EventHandler(this.radio24_CheckedChanged);
             // 
-            // btnPaySubmit
+            // radio16
             // 
-            this.btnPaySubmit.Location = new System.Drawing.Point(112, 296);
-            this.btnPaySubmit.Name = "btnPaySubmit";
-            this.btnPaySubmit.Size = new System.Drawing.Size(84, 29);
-            this.btnPaySubmit.TabIndex = 6;
-            this.btnPaySubmit.Text = "确认扣费";
-            this.btnPaySubmit.UseVisualStyleBackColor = true;
-            this.btnPaySubmit.Click += new System.EventHandler(this.btnPaySubmit_Click);
+            this.radio16.AutoSize = true;
+            this.radio16.Location = new System.Drawing.Point(129, 175);
+            this.radio16.Name = "radio16";
+            this.radio16.Size = new System.Drawing.Size(67, 19);
+            this.radio16.TabIndex = 2;
+            this.radio16.TabStop = true;
+            this.radio16.Text = "1.6元";
+            this.radio16.UseVisualStyleBackColor = true;
+            this.radio16.CheckedChanged += new System.EventHandler(this.radio16_CheckedChanged);
+            // 
+            // radio08
+            // 
+            this.radio08.AutoSize = true;
+            this.radio08.Location = new System.Drawing.Point(32, 175);
+            this.radio08.Name = "radio08";
+            this.radio08.Size = new System.Drawing.Size(67, 19);
+            this.radio08.TabIndex = 1;
+            this.radio08.TabStop = true;
+            this.radio08.Text = "0.8元";
+            this.radio08.UseVisualStyleBackColor = true;
+            this.radio08.CheckedChanged += new System.EventHandler(this.radio08_CheckedChanged);
+            // 
+            // labelPay
+            // 
+            this.labelPay.AutoSize = true;
+            this.labelPay.Font = new System.Drawing.Font("宋体", 14F);
+            this.labelPay.Location = new System.Drawing.Point(108, 58);
+            this.labelPay.Name = "labelPay";
+            this.labelPay.Size = new System.Drawing.Size(118, 24);
+            this.labelPay.TabIndex = 0;
+            this.labelPay.Text = "信息提示 ";
+            // 
+            // groupCharge
+            // 
+            this.groupCharge.Controls.Add(this.btnChargeSubmit);
+            this.groupCharge.Controls.Add(this.btnChargeQuery);
+            this.groupCharge.Controls.Add(this.radio100);
+            this.groupCharge.Controls.Add(this.radio50);
+            this.groupCharge.Controls.Add(this.radio20);
+            this.groupCharge.Controls.Add(this.labelCharge);
+            this.groupCharge.Enabled = false;
+            this.groupCharge.Location = new System.Drawing.Point(387, 146);
+            this.groupCharge.Name = "groupCharge";
+            this.groupCharge.Size = new System.Drawing.Size(328, 425);
+            this.groupCharge.TabIndex = 7;
+            this.groupCharge.TabStop = false;
+            this.groupCharge.Text = "充值系统 ";
+            // 
+            // radio100
+            // 
+            this.radio100.AutoSize = true;
+            this.radio100.Location = new System.Drawing.Point(222, 175);
+            this.radio100.Name = "radio100";
+            this.radio100.Size = new System.Drawing.Size(67, 19);
+            this.radio100.TabIndex = 3;
+            this.radio100.TabStop = true;
+            this.radio100.Text = "100元";
+            this.radio100.UseVisualStyleBackColor = true;
+            // 
+            // radio50
+            // 
+            this.radio50.AutoSize = true;
+            this.radio50.Location = new System.Drawing.Point(129, 175);
+            this.radio50.Name = "radio50";
+            this.radio50.Size = new System.Drawing.Size(59, 19);
+            this.radio50.TabIndex = 2;
+            this.radio50.TabStop = true;
+            this.radio50.Text = "50元";
+            this.radio50.UseVisualStyleBackColor = true;
+            // 
+            // radio20
+            // 
+            this.radio20.AutoSize = true;
+            this.radio20.Location = new System.Drawing.Point(32, 175);
+            this.radio20.Name = "radio20";
+            this.radio20.Size = new System.Drawing.Size(59, 19);
+            this.radio20.TabIndex = 1;
+            this.radio20.TabStop = true;
+            this.radio20.Text = "20元";
+            this.radio20.UseVisualStyleBackColor = true;
+            // 
+            // labelCharge
+            // 
+            this.labelCharge.AutoSize = true;
+            this.labelCharge.Font = new System.Drawing.Font("宋体", 14F);
+            this.labelCharge.Location = new System.Drawing.Point(106, 58);
+            this.labelCharge.Name = "labelCharge";
+            this.labelCharge.Size = new System.Drawing.Size(118, 24);
+            this.labelCharge.TabIndex = 0;
+            this.labelCharge.Text = "信息提示 ";
+            // 
+            // btnChargeQuery
+            // 
+            this.btnChargeQuery.Location = new System.Drawing.Point(49, 259);
+            this.btnChargeQuery.Name = "btnChargeQuery";
+            this.btnChargeQuery.Size = new System.Drawing.Size(100, 49);
+            this.btnChargeQuery.TabIndex = 4;
+            this.btnChargeQuery.Text = "余额查询";
+            this.btnChargeQuery.UseVisualStyleBackColor = true;
+            this.btnChargeQuery.Click += new System.EventHandler(this.btnChargeQuery_Click);
+            // 
+            // btnChargeSubmit
+            // 
+            this.btnChargeSubmit.Location = new System.Drawing.Point(174, 259);
+            this.btnChargeSubmit.Name = "btnChargeSubmit";
+            this.btnChargeSubmit.Size = new System.Drawing.Size(100, 49);
+            this.btnChargeSubmit.TabIndex = 5;
+            this.btnChargeSubmit.Text = "确认充值";
+            this.btnChargeSubmit.UseVisualStyleBackColor = true;
+            this.btnChargeSubmit.Click += new System.EventHandler(this.btnChargeSubmit_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 598);
+            this.Controls.Add(this.groupCharge);
             this.Controls.Add(this.groupPay);
             this.Controls.Add(this.groupSetting);
             this.Name = "MainForm";
@@ -231,6 +319,8 @@
             this.groupSetting.PerformLayout();
             this.groupPay.ResumeLayout(false);
             this.groupPay.PerformLayout();
+            this.groupCharge.ResumeLayout(false);
+            this.groupCharge.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -252,6 +342,13 @@
         private System.Windows.Forms.RadioButton radioOther;
         private System.Windows.Forms.TextBox textOther;
         private System.Windows.Forms.Button btnPaySubmit;
+        private System.Windows.Forms.GroupBox groupCharge;
+        private System.Windows.Forms.Button btnChargeQuery;
+        private System.Windows.Forms.RadioButton radio100;
+        private System.Windows.Forms.RadioButton radio50;
+        private System.Windows.Forms.RadioButton radio20;
+        private System.Windows.Forms.Label labelCharge;
+        private System.Windows.Forms.Button btnChargeSubmit;
     }
 }
 
