@@ -44,9 +44,9 @@
 
 1. 硬件：13.56M 高频 RFID 模块、ISO14443 TypeA 标签卡，miniUSB 线，PC 电脑；
 
-![image-20250531010430921](D:\桌面\image-20250531010430921.png)
+![image-20250531010430921](https://github.com/Coekyun-Dou/RFID-ECardSystem/blob/master/image/image-20250531010430921.png?raw=true)
 
-![image-20250531010523286](D:\桌面\image-20250531010523286.png)
+![image-20250531010523286](https://raw.githubusercontent.com/Coekyun-Dou/RFID-ECardSystem/refs/heads/master/image/image-20250531010523286.png)
 
 
 
@@ -58,4 +58,4 @@
 
 ### 【页面展示】
 
-![image-20250531010652126](D:\桌面\image-20250531010652126.png)
+![image-20250531010652126](https://github.com/Coekyun-Dou/RFID-ECardSystem/blob/master/image/image-20250531010652126.png?raw=true)
