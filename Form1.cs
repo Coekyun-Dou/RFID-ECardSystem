@@ -40,6 +40,8 @@ namespace ECardSystem
         public int iCurrentHandle = 0;
         //当前余额
         public int iCurrentRemain = 0;
+
+        //动态获取电脑上的串口并自动添加到串口设置列表
         private void initComComboBox()
         {
             RegistryKey keyCom = Registry.LocalMachine.OpenSubKey("Hardware\\DeviceMap\\SerialComm");
@@ -257,6 +259,8 @@ namespace ECardSystem
         {
             bThread = false;
         }
+
+        //从串口缓冲区内将数据读取并初步提取
         private void scanData()
         {
             if (bLock == false)
@@ -341,6 +345,8 @@ namespace ECardSystem
             }
             return ret;
         }
+
+        //处理解析的函数
         private void handleData(byte[] Packet)
         {
             //判断校验位
@@ -554,6 +560,8 @@ namespace ECardSystem
                 }
             }
         }
+
+        //高频标签的命令函数，包括模块唤醒、读取标签 UID、校验密码、数据读取、数据写入功能
         public void StartWakeUpThread()
         {
             if (!bWakeUp)
@@ -696,6 +704,7 @@ namespace ECardSystem
             Buff[27] = (byte)0x00;
             serialSend(Buff);
         }
+        //添加 13.56M 高频读卡器校验算法函数
         //校验13.56M
         private bool CheckHF1356MVerify(byte[] bytes)
         {
