@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Win32;
+using System.IO.Ports;
 using System.Windows.Forms;
 
 namespace ECardSystem
@@ -53,12 +55,84 @@ namespace ECardSystem
                 }
             }
         }
+        //切换类型线程
+        public void SwitchCOMThread(string strCOM)
+        {
+            Thread newthread = new Thread(new ParameterizedThreadStart(SwitchCOM));
+            newthread.Start((object)strCOM);
+        }
+
+        //切换类型
+        public void SwitchCOM(object obj)
+        {
+            string strCOM = (string)obj;
+            try
+            {
+                mSerialPort.BaudRate = 115200;
+                mSerialPort.PortName = strCOM;
+                mSerialPort.Open();
+            }
+            catch (Exception ex)
+            {
+                showMsg("串口：" + ex.Message);
+            }
+            Thread.Sleep(100);
+            byte[] bytes = new byte[7];
+            bytes[0] = (byte)0xAA;
+            bytes[1] = (byte)bytes.Length;
+            bytes[2] = (byte)0x01;
+            bytes[3] = (byte)0x00;
+            bytes[4] = (byte)0x01;
+            bytes[5] = (byte)0x05;
+            setSummationVerify(bytes);
+            serialSend(bytes);
+            Thread.Sleep(100);
+            try
+            {
+                if (mSerialPort.IsOpen)
+                {
+                    mSerialPort.Close();
+                }
+                mSerialPort.BaudRate = 115200;
+                mSerialPort.PortName = strCOM;
+                mSerialPort.Open();
+            }
+            catch (Exception ex)
+            {
+                showMsg("串口：" + ex.Message);
+            }
+        }
+
+        public byte[] String2Bytes(string str)
+        {
+            byte[] BytesTemp = Encoding.Default.GetBytes(str);
+            if (BytesTemp.Length % 2 == 1)
+                return null;
+            byte[] BytesReturn = new byte[BytesTemp.Length / 2];
+            for (int i = 0; i < BytesReturn.Length; i++)
+            {
+                if ((('0' <= BytesTemp[i * 2] && BytesTemp[i * 2] <= '9')
+                    || ('A' <= BytesTemp[i * 2] && BytesTemp[i * 2] <= 'F')
+                    || ('a' <= BytesTemp[i * 2] && BytesTemp[i * 2] <= 'f'))
+                    && (('0' <= BytesTemp[i * 2 + 1] && BytesTemp[i * 2 + 1] <= '9')
+                    || ('A' <= BytesTemp[i * 2 + 1] && BytesTemp[i * 2 + 1] <= 'F')
+                    || ('a' <= BytesTemp[i * 2 + 1] && BytesTemp[i * 2 + 1] <= 'f')))
+                {
+                    BytesReturn[i] = (byte)(ASCII2byte(BytesTemp[i * 2]) * 16);
+                    BytesReturn[i] += ASCII2byte(BytesTemp[i * 2 + 1]);
+                }
+                else
+                    return null;
+            }
+            return BytesReturn;
+        }
+
         //打开串口
         private void openSerial()
         {
             try
             {
-                SwitchCOMThread( mSerialComboBox.Text); 
+                SwitchCOMThread(comboSerial.Text); 
                 btnSerialConnect.Enabled = false; 
                 btnSerialDisconnect.Enabled = true;
                 showMsg("串口：连接成功！");
