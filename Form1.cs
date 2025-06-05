@@ -25,7 +25,7 @@ namespace ECardSystem
         //数据缓冲区
         public byte[] byteRecBuff = new byte[MaxLen];
         //数据读缓冲区
-        public byte[] byteDate = new byte[MaxDataLen];
+        public byte[] bytesData = new byte[MaxDataLen];
         //数据进出标志
         public int iDataIn = 0,iDataOut = 0;
         //当前选择的系统模式，扣费or充值
@@ -58,7 +58,7 @@ namespace ECardSystem
         {
             try
             {
-                SwitchCOMThread(mSerialComboBox.Text); 
+                SwitchCOMThread( mSerialComboBox.Text); 
                 btnSerialConnect.Enabled = false; 
                 btnSerialDisconnect.Enabled = true;
                 showMsg("串口：连接成功！");
@@ -696,7 +696,7 @@ namespace ECardSystem
 
                     private void MainForm_Load(object sender, EventArgs e)
                     {
-                        initComboBox();
+                        initComComboBox();
                         mTimer.Start();
                         recvThreadStart();
 
