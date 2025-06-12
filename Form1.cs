@@ -138,6 +138,8 @@ namespace ECardSystem
                 btnSerialConnect.Enabled = false; 
                 btnSerialDisconnect.Enabled = true;
                 showMsg("串口：连接成功！");
+                //唤醒模块
+                StartWakeUpThread();
             }
             catch (Exception ex)
             {
@@ -871,7 +873,12 @@ namespace ECardSystem
                         showMsg("提示：完成充值操作前，请勿将卡片移开！");
                     }
 
-                    private void mTimer_Tick(object sender, EventArgs e)
+        private void groupCharge_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mTimer_Tick(object sender, EventArgs e)
                     {
                         scanData();
                     }

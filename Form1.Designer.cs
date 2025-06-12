@@ -245,6 +245,7 @@
             this.groupCharge.TabIndex = 7;
             this.groupCharge.TabStop = false;
             this.groupCharge.Text = "充值系统 ";
+            this.groupCharge.Enter += new System.EventHandler(this.groupCharge_Enter);
             // 
             // btnChargeSubmit
             // 
@@ -314,9 +315,9 @@
             this.mStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mInfo});
-            this.mStatusStrip.Location = new System.Drawing.Point(0, 572);
+            this.mStatusStrip.Location = new System.Drawing.Point(0, 589);
             this.mStatusStrip.Name = "mStatusStrip";
-            this.mStatusStrip.Size = new System.Drawing.Size(740, 26);
+            this.mStatusStrip.Size = new System.Drawing.Size(764, 26);
             this.mStatusStrip.TabIndex = 8;
             this.mStatusStrip.Text = "statusStrip1";
             // 
@@ -334,13 +335,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 598);
+            this.ClientSize = new System.Drawing.Size(764, 615);
             this.Controls.Add(this.mStatusStrip);
             this.Controls.Add(this.groupCharge);
             this.Controls.Add(this.groupPay);
             this.Controls.Add(this.groupSetting);
             this.Name = "MainForm";
-            this.Text = "电子钱包系统";
+            this.Text = "电子钱包管理系统";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupSetting.ResumeLayout(false);
